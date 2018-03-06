@@ -18,6 +18,7 @@ http://localhost:3000/
 
 - React
 - styled-components
+- Redux
 
 ## License
 The MIT License ([MIT](https://github.com/robertoduessmann/find-cep/blob/master/LICENSE))
