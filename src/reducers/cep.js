@@ -40,7 +40,7 @@ export const updateAddress = (address) => {
 export const fetchAddress = (cep) => async (dispatch) => {
     dispatch({type:FETCHING})
     
-    const result = await fetch(`http://apps.widenet.com.br/busca-cep/api/cep/${cep}.json`)
+    const result = await fetch(`http://apps.widenet.com.br/busca-cep/api/cep/${cep}.json`, {referrerPolicy: "no-referrer"})
     const response = await result.json();
 
     if (typeof response !== 'object')
