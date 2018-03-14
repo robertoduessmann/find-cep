@@ -1,28 +1,32 @@
 import React from 'react'
-import styled, {injectGlobal } from 'styled-components'
+import styled, { injectGlobal } from 'styled-components'
 import { connect } from 'react-redux'
 import { fetchAddress } from './reducers/cep'
+import Button from './Button'
+import Box from './Box'
 
-const Cep = ({ isFetching, code, state, city, district, address, errorMessage, handleSubmit }) =>  (
+const Cep = ({ isFetching, code, state, city, district, address, errorMessage, handleSubmit }) => (
   <div>
     <form onSubmit={handleSubmit}>
       <div>
         <Input type='text' id='cep' />
-        <Button type='submit' disabled={isFetching}>{isFetching ? 'Buscando...' : 'Buscar'}</Button>
+        <Button>{isFetching ? 'Buscando...' : 'Buscar'}</Button>
       </div>
-    </form>  
-    
+    </form>
+
     {errorMessage && <span>{errorMessage}</span>}
-    
+
     {!errorMessage &&
-      <Ul>
-        <li>CEP: {code}</li>
-        <li>Estado: {state}</li>
-        <li>Cidade: {city}</li>
-        <li>Bairro: {district}</li>
-        <li>Endereço: {address}</li>
-      </Ul>
-    }  
+      <Box>
+        <Ul>
+          <li>CEP: {code}</li>
+          <li>Estado: {state}</li>
+          <li>Cidade: {city}</li>
+          <li>Bairro: {district}</li>
+          <li>Endereço: {address}</li>
+        </Ul>
+      </Box>
+    }
   </div>
 )
 
@@ -33,42 +37,33 @@ injectGlobal`
 
   body {
     font-family: sans-serif;
+    text-align: center;
   }
 `
 
 const Input = styled.input`
-  width: 60%;
+  width: 30%;
   font-size: 40px;
 `
 
 const Ul = styled.ul`
+  list-style-type: none;
   & li + li {
     border-top: 1px solid #ccc;
     padding: 10px 0;
   }
 `
 
-const Button = styled.button`
-  display: inline-block;
-  border-radius: 3px;
-  padding: 1rem 0;
-  margin: 0.5rem 1rem;
-  width: 11rem;
-  background: #8899ef;
-  color: white;
-  border: 2px solid white;
-`
-
 const mapStateToProps = (state) => {
-  return state.cep   
+  return state.cep
 }
 
 const mapDispatchToProps = (dispatch) => {
   return {
     handleSubmit: async (e) => {
       e.preventDefault()
-      const cep = e.target.cep.value  
-      dispatch(fetchAddress(cep))   
+      const cep = e.target.cep.value
+      dispatch(fetchAddress(cep))
     }
   }
 }
