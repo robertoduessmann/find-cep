@@ -8,7 +8,7 @@ const Box = ({children}) => (
 export const Div = styled.div`
 width: 30%;
 text-align:left;
-margin: auto;  
+margin: 3% auto;
 border: 3px dotted #8899ef;
 padding: 10px;  
 `
