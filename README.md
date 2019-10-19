@@ -19,6 +19,8 @@ http://localhost:3000/
 - React
 - styled-components
 - Redux
+- ESLint
+- Jest/Enzyme
 
 ## License
 The MIT License ([MIT](https://github.com/robertoduessmann/find-cep/blob/master/LICENSE))
