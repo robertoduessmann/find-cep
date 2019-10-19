@@ -43,7 +43,7 @@ export const fetchAddress = (cepcode) => async (dispatch) => {
 
   if (typeof response !== 'object') return dispatch(updateAddress({ errorMessage: response }));
 
-  dispatch(updateAddress({
+  return dispatch(updateAddress({
     ...response,
     errorMessage: response.message,
   }));

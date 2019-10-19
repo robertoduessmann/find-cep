@@ -8,13 +8,13 @@ import Box from './Box'
 const Cep = ({ isFetching, code, state, city, district, address, errorMessage, handleSubmit }) => (
   <div>
     <form onSubmit={handleSubmit}>
-      <Div>
+      <Search>
         CEP: <Input type='text' id='cep' />
         <Button>{isFetching ? 'Buscando...' : 'Buscar'}</Button>
-      </Div>
+      </Search>
     </form>
 
-    {errorMessage && <span>{errorMessage}</span>}
+    {errorMessage && <ErrorSpan><br/>{errorMessage}</ErrorSpan>}
 
     {!errorMessage && code!=='' &&
       <Box>
@@ -55,12 +55,17 @@ const Ul = styled.ul`
   }
 `
 
-const Div = styled.div`
+const Search = styled.div`
   margin-top: 10%;
   width: 100%;
   padding: 10px;
   font-size: 30px;
   background-color: #e4e4e4;
+`
+
+const ErrorSpan = styled.span`
+color: #b30000;
+font-size: 20px;
 `
 
 const mapStateToProps = (state) => {
