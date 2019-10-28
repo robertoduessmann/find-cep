@@ -9,7 +9,7 @@ const Cep = ({ isFetching, code, state, city, district, address, errorMessage, h
   <div>
     <form onSubmit={handleSubmit}>
       <Search>
-        CEP: <Input type='text' id='cep' />
+        CEP: <Input type='text' id='cep' maxLength='8' pattern='[0-9]+'/>
         <Button>{isFetching ? 'Buscando...' : 'Buscar'}</Button>
       </Search>
     </form>
